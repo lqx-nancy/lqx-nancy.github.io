@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexo || my first blog</title>
+    <meta name="author" content="qianxun">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/avatar.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hexo</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://en.korilin.com">
+            <span>
+                <a-icon type="compass" theme="filled" />
+            </span>
+            <span>英文博客</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Hexo</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://en.korilin.com">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="compass" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">英文博客</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>my first blog </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2025/11/28
+        </span>
+
+        
+
+        
+    </div>
+
+    <div class="content" v-pre>
+        <!-- # 其实说实话不知道第一篇博客应该写什么 -->
+<h1 id="我的第一篇博客–学习总结"><a href="#我的第一篇博客–学习总结" class="headerlink" title="我的第一篇博客–学习总结"></a><font face="仿宋" >我的第一篇博客–学习总结</font></h1><hr>
+<h2 id="关于OOP"><a href="#关于OOP" class="headerlink" title="关于OOP"></a>关于OOP</h2><h4 id="根据对象的属性与方法将对象进行分类"><a href="#根据对象的属性与方法将对象进行分类" class="headerlink" title="根据对象的属性与方法将对象进行分类"></a>根据对象的属性与方法将对象进行分类</h4><ul>
+<li>父类</li>
+<li>子类<br><em>父类的属性、方法子类都具有，而子类所具有的父类不一定有</em></li>
+</ul>
+<hr>
+<hr>
+<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><h4 id="此时，函数–-参数、返回值"><a href="#此时，函数–-参数、返回值" class="headerlink" title="此时，函数–&gt;参数、返回值"></a>此时，函数–&gt;参数、返回值</h4><ul>
+<li>高阶函数：接受&#x2F;返回的是函数</li>
+<li>纯函数：不依赖于外部变量</li>
+</ul>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>–&gt;原始数据（数字、字符、布尔值…）<br>–&gt;对象<br><em>“共享仓库”（prototype）里还有个constructor，它是个 “指向标”，指着 “做包子的方法” 本身 —— 比如你拿到一个包子，通过包子.constructor能知道 “这是用‘做包子’方法做的”<br>共享属性和方法 —— 避免每个实例都重复定义相同内容</em>  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// prototype 上有一个 gender 属性</span></span><br><span class="line"><span class="comment">// 实例和 prototype 有同名属性时，优先用实例的</span></span><br><span class="line"><span class="title class_">User</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">gender</span> = <span class="string">&quot;未知&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// user1 自身定义同名属性</span></span><br><span class="line">user1.<span class="property">gender</span> = <span class="string">&quot;男&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user1.<span class="property">gender</span>); <span class="comment">// 男（用实例自身的）</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user2.<span class="property">gender</span>); <span class="comment">// 未知（用 prototype 的） </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 共用放在prototype里的方法</span></span><br><span class="line"><span class="comment">// 定义构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">User</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">  <span class="comment">// 实例自身的属性（每个实例独有的）</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把共享方法放到 prototype 上（所有实例共用）</span></span><br><span class="line"><span class="title class_">User</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">printInfo</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`姓名：<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>，年龄：<span class="subst">$&#123;<span class="variable language_">this</span>.age&#125;</span>`</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建两个实例</span></span><br><span class="line"><span class="keyword">const</span> user1 = <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">20</span>);</span><br><span class="line"><span class="keyword">const</span> user2 = <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;李四&quot;</span>, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 两个实例都能调用 prototype 上的方法，且共用同一份</span></span><br><span class="line">user1.<span class="title function_">printInfo</span>(); <span class="comment">// 姓名：张三，年龄：20</span></span><br><span class="line">user2.<span class="title function_">printInfo</span>(); <span class="comment">// 姓名：李四，年龄：30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证：两个实例的 printInfo 是同一个函数</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user1.<span class="property">printInfo</span> === user2.<span class="property">printInfo</span>); <span class="comment">// true（只占一份内存）</span></span><br></pre></td></tr></table></figure>
+<h5 id="关于箭头函数"><a href="#关于箭头函数" class="headerlink" title="关于箭头函数&#x3D;&gt;"></a>关于箭头函数&#x3D;&gt;</h5><ol>
+<li>省略 function、return、{}；a &#x3D;&gt; a * 2（省略参数括号 ()、function、return、{}）；a &#x3D;&gt; a * 2（省略参数括号 ()）</li>
+<li></li>
+</ol>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实际常用场景：回调函数中保留 this</span></span><br><span class="line"> <span class="attr">asyncFunc</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="comment">// 普通回调函数：this 会变成 window</span></span><br><span class="line">   <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;普通回调：&quot;</span>, <span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// undefined</span></span><br><span class="line">   &#125;, <span class="number">100</span>);</span><br><span class="line">   <span class="comment">// 箭头回调函数：this 继承外层的 obj</span></span><br><span class="line">   <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;箭头回调：&quot;</span>, <span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// 张三（正确拿到 obj 的 this）</span></span><br><span class="line">   &#125;, <span class="number">100</span>);</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>不能用new调用、没有arguments对象</li>
+<li>不能用arguments获取参数，需要用（…args）代替</li>
+</ol>
+<h4 id="关于this"><a href="#关于this" class="headerlink" title="关于this"></a>关于this</h4><ol>
+<li>函数赋值之后，this会改变（this可能会变成window）<br>  –&gt;用bind绑定this（手动指定对象）</li>
+<li></li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line"><span class="attr">name</span>: <span class="string">&quot;王十一&quot;</span>,</span><br><span class="line"><span class="attr">sayHi</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> func = user.<span class="property">sayHi</span>; <span class="comment">// 把方法赋值给变量（失去调用者）</span></span><br><span class="line">  <span class="title function_">func</span>(); <span class="comment">// undefined（this 变成 window）</span></span><br><span class="line">  <span class="keyword">const</span> func = user.<span class="property">sayHi</span>.<span class="title function_">bind</span>(user);</span><br><span class="line">  <span class="title function_">func</span>(); <span class="comment">// 输出：王十一</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>用对象调用（obj.func()）→ this 是这个对象</li>
+<li>普通调用（func()）→ this 是全局对象（严格模式下 undefined）</li>
+</ol>
+<h4 id="函数-prototype-→-原型对象（共享仓库）new-函数-→-实例对象（从-“共享仓库”-拿东西用）"><a href="#函数-prototype-→-原型对象（共享仓库）new-函数-→-实例对象（从-“共享仓库”-拿东西用）" class="headerlink" title="函数.prototype → 原型对象（共享仓库）new 函数() → 实例对象（从 “共享仓库” 拿东西用）"></a>函数.prototype → 原型对象（共享仓库）new 函数() → 实例对象（从 “共享仓库” 拿东西用）</h4><h3 id="关于原型链"><a href="#关于原型链" class="headerlink" title="关于原型链"></a>关于原型链</h3><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><ul>
+<li>原型链尽头是null</li>
+<li>借助构造函数的原型机制，让实例继承指定对象</li>
+<li>通过 object instanceof constructor 判断一个构造函数的prototype是否在指定对象的原型链中<br><em>Function.prototype.<strong>proto</strong>&#x3D;&#x3D;&#x3D;Object.prototype&#x2F;&#x2F;true,即Function instanceofObject</em></li>
+</ul>
+<h3 id="函数式编程-1"><a href="#函数式编程-1" class="headerlink" title="函数式编程"></a>函数式编程</h3><ul>
+<li><strong>声明式</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（const doubleMap = numbers =&gt; numbers.map(n =&gt; n * 2);）</span><br><span class="line">&lt;!-- 与命令式的区别在于命令式需要告诉具体方法 ，而声明用语句告诉所求结果即可--&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>纯函数</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2025 Hexo
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @qianxun
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'hexo-theme-particle',      // The repository of store comments,
+        owner: 'korilin',
+        admin: ['korilin'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>
